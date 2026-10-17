@@ -71,7 +71,7 @@ Each entry lives in exactly one category. When a project could fit multiple cate
 - [Data Labeling & Curation](#data-labeling--curation) — 4 entries
 - [Evaluation & Benchmarking](#evaluation--benchmarking) — 59 entries
 - [Calibration & Research](#calibration--research) — 48 entries
-- [Infra / SDKs / Integrations](#infra--sdks--integrations) — 249 entries
+- [Infra / SDKs / Integrations](#infra--sdks--integrations) — 250 entries
 - [Game & Simulation](#game--simulation) — 71 entries
 - [Robotics & Physical](#robotics--physical) — 4 entries
 - [Finance & Trading](#finance--trading) — 6 entries
@@ -982,6 +982,8 @@ Source file: [`categories/infra-sdks-integrations.md`](categories/infra-sdks-int
 - [DecisionKit](https://github.com/iamjonatha/decisionkit-dotnet) ![type: library](https://img.shields.io/badge/type-library-4B5563?style=flat-square) - .NET ecosystem: provider-independent .NET decision engine whose domain package holds no Jev URL, header or DTO, mapping `Choice`, `Score` and `Noul` questions onto `POST /v1/systemone` from a separate provider package, with a runnable ASP.NET ticket-triage sample that picks the owning team and escalates to a human at a normalized `Score` of 0.8, and 1,096 tests across `net8.0` and `net10.0` that run with no HTTP.
 
 - [intern-decision-mlx](https://github.com/dex0shubham/intern-decision-mlx) ![type: self-hosted](https://img.shields.io/badge/type-self--hosted-4B5563?style=flat-square) - Local runtime: serves Shanghai AI Lab's open Intern-Decision-0.8B vision decision model on Apple Silicon behind a `/v1/systemone`-shaped endpoint that also takes screenshots, so an agent can threshold the calibrated `Choice`, `Score` and `Noul` answers and escalate the rest — 0.9 s per 1080p screenshot downscaled to 1024 px on an 8 GB M2 MacBook Air, and the same answers as the lab's PyTorch reference on 67 of 67 fields.
+
+- [Jev Agent](https://jev-agent.com/api-access) ![type: hosted](https://img.shields.io/badge/type-hosted-4B5563?style=flat-square) - Developer tooling: hosted Jev AI relay whose Jev model API accepts OpenAI's Decisions API request at `/api/v1/decisions`, so the OpenAI SDK reaches Jev or any of 13 decision models by changing `baseURL`, and TypeSafe's own `Choice` / `Score` / `Noul` shape at `/api/v1/systemone`, returning per-option probabilities (plus confidence on `Choice`) that calling code thresholds to accept or escalate, with an `X-TypeSafe-Key` header that runs Jev on your own TypeSafe account for 0 credits; independent, not affiliated with TypeSafe AI.
 
 ### Game & Simulation
 
