@@ -69,7 +69,7 @@ Each entry lives in exactly one category. When a project could fit multiple cate
 - [Scoring & Ranking](#scoring--ranking) — 29 entries
 - [Agent Decisions](#agent-decisions) — 80 entries
 - [Data Labeling & Curation](#data-labeling--curation) — 4 entries
-- [Evaluation & Benchmarking](#evaluation--benchmarking) — 58 entries
+- [Evaluation & Benchmarking](#evaluation--benchmarking) — 59 entries
 - [Calibration & Research](#calibration--research) — 48 entries
 - [Infra / SDKs / Integrations](#infra--sdks--integrations) — 249 entries
 - [Game & Simulation](#game--simulation) — 71 entries
@@ -604,6 +604,8 @@ Source file: [`categories/evaluation-benchmarking.md`](categories/evaluation-ben
 - [jev vs. open alternatives](https://github.com/run-llama/jev_vs_oss) - Document pipelines: compares Jev against open models and specialised tools on five chores — language detection, orientation, RVL-CDIP classification, bundle splitting and parse-tier triage — asked as `Choice(2)` up to `Choice(16)`.
 
 - [S1MB](https://github.com/hotchpotch/S1MB) - Decision-model evaluation: compares Jev and open decision models across 137 English Choice, Noul, and Score benchmarks, including six synthetic generalization probes, with public evaluation data, recorded results, and an interactive [leaderboard](https://huggingface.co/spaces/hotchpotch/S1MB-leaderboard).
+
+- [Decision Models as Guardrails](https://github.com/raxITlabs/decision-models-as-guardrails) - Guardrail evaluation: asks Jev 1.13.0, Jev 1.14.0, 16 other decision models and Amazon Bedrock Guardrails the same 9,975 labelled checks across six suites (content, prompt attacks, denied topics, profanity, PII, grounding), posing each check to Jev as a `Noul` and blocking at p ≥ 0.5 for every system with nothing tuned per model, where Jev 1.14.0 scores 88.7 balanced accuracy against 79.0 for Bedrock Guardrails at $39 versus $113 per million checks and direct prompt attacks are the weakest category for every system, with per-row results on a public [leaderboard](https://dm-as-guardrails.raxitlabs.com).
 
 ### Calibration & Research
 
