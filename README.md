@@ -65,13 +65,13 @@ Each entry lives in exactly one category. When a project could fit multiple cate
 
 - [Classification & Routing](#classification--routing) — 109 entries
 - [Adaptive & Realtime UI](#adaptive--realtime-ui) — 3 entries
-- [Verification & Guardrails](#verification--guardrails) — 96 entries
+- [Verification & Guardrails](#verification--guardrails) — 97 entries
 - [Scoring & Ranking](#scoring--ranking) — 29 entries
 - [Agent Decisions](#agent-decisions) — 80 entries
 - [Data Labeling & Curation](#data-labeling--curation) — 4 entries
-- [Evaluation & Benchmarking](#evaluation--benchmarking) — 58 entries
+- [Evaluation & Benchmarking](#evaluation--benchmarking) — 59 entries
 - [Calibration & Research](#calibration--research) — 49 entries
-- [Infra / SDKs / Integrations](#infra--sdks--integrations) — 249 entries
+- [Infra / SDKs / Integrations](#infra--sdks--integrations) — 250 entries
 - [Game & Simulation](#game--simulation) — 71 entries
 - [Robotics & Physical](#robotics--physical) — 4 entries
 - [Finance & Trading](#finance--trading) — 6 entries
@@ -268,6 +268,7 @@ Source file: [`categories/verification-guardrails.md`](categories/verification-g
 - [jev-axi](https://github.com/shiftynick/jev-axi) - Agent safety: PreToolUse gate for Claude Code and Codex that has Jev score each shell command for destructiveness, exfiltration, remote code execution, and security weakening, deciding routine commands locally so nothing is sent for them, and scoring 44/44 on the 44 labeled tool calls in its repository.
 - [pi-verdict](https://github.com/jesset/pi-verdict) - Agent safety: Pi permission gate where Jev answers one Choice (allow/ask/deny) per gray-zone tool call — deterministic rules settle clear cases first, deny blocks, ask escalates to a human confirm, and errors or timeouts deny; Jev is an optional backend, OpenRouter-only and experimental.
 - [jev-commit](https://github.com/valentynkit/jev-commit) - Developer tooling: pre-commit hook where one Jev call judges whether the commit message matches the staged diff, flags debug leftovers and unmentioned work, and blocks only on a detected credential.
+- [strayguard](https://github.com/Eve2512/Strayguard) - Developer tooling: pre-commit hook that asks one Jev `Choice` per newly added file (belongs, scratch, output dump, build output, local only) and flags likely strays at a 0.70 threshold in code; 0 of 60 false alarms and 40 of 40 strays caught on a 100-file eval.
 - [Blink](https://blink.review) - Code review: CLI that coding agents run after every change, with Jev checking the diff near-instantly in place of an LLM reviewer.
 - [hermes-jev-approvals](https://github.com/anpicasso/hermes-jev-approvals) - Agent approvals: proof of concept that puts Jev in front of Hermes Agent's command approvals, reporting 8.7x faster decisions and 4.4x fewer prompts to the user.
 - [jev-engineering](https://github.com/eugeniughelbur/jev-engineering) - Agent safety: gates coding-agent tool calls with deterministic rules first and one typed Jev call second, then publishes a rerunnable 300-call injection test showing what the gate catches and what walks past it.
@@ -605,6 +606,8 @@ Source file: [`categories/evaluation-benchmarking.md`](categories/evaluation-ben
 
 - [S1MB](https://github.com/hotchpotch/S1MB) - Decision-model evaluation: compares Jev and open decision models across 137 English Choice, Noul, and Score benchmarks, including six synthetic generalization probes, with public evaluation data, recorded results, and an interactive [leaderboard](https://huggingface.co/spaces/hotchpotch/S1MB-leaderboard).
 
+- [Decision Models as Guardrails](https://github.com/raxITlabs/decision-models-as-guardrails) - Guardrail evaluation: asks Jev 1.13.0, Jev 1.14.0, 16 other decision models and Amazon Bedrock Guardrails the same 9,975 labelled checks across six suites (content, prompt attacks, denied topics, profanity, PII, grounding), posing each check to Jev as a `Noul` and blocking at p ≥ 0.5 for every system with nothing tuned per model, where Jev 1.14.0 scores 88.7 balanced accuracy against 79.0 for Bedrock Guardrails at $39 versus $113 per million checks and direct prompt attacks are the weakest category for every system, with per-row results on a public [leaderboard](https://dm-as-guardrails.raxitlabs.com).
+
 ### Calibration & Research
 
 Source file: [`categories/calibration-research.md`](categories/calibration-research.md)
@@ -684,6 +687,8 @@ Source file: [`categories/calibration-research.md`](categories/calibration-resea
 
 - [WaterSheep](https://github.com/SamratDuttaOfficial/WaterSheep) - Open alternative: an Apache-2.0 open-weight model that answers `noul`, `choice`, `score` and multi-label questions with a calibrated probability for every option, serves `POST /v1/systemone` so TypeSafe's Python SDK works after a base-URL change, and has an ONNX build that runs in the browser.
 - [VideoJev](https://github.com/MCG-NJU/VideoJev) - Video understanding: Jev-inspired System One models directly score temporal membership and answer options for multiple questions over one shared video prefix, returning intervals and choices without generating text.
+
+- [Phocinae Largha 150M](https://github.com/Phocinae/Phocinae-Largha-150M-v1) - Open model: a 144.3M-parameter bilingual (English/Chinese) typed decision model on mmBERT-small that answers `Choice`, `Score` and `Noul` questions with calibrated probabilities in one forward pass so callers gate or escalate on the returned numbers; runs locally, 21.0 ms p50 per decision on an RTX 5090, with Apache-2.0 weights.
 
 ### Infra / SDKs / Integrations
 
@@ -978,6 +983,8 @@ Source file: [`categories/infra-sdks-integrations.md`](categories/infra-sdks-int
 - [DecisionKit](https://github.com/iamjonatha/decisionkit-dotnet) ![type: library](https://img.shields.io/badge/type-library-4B5563?style=flat-square) - .NET ecosystem: provider-independent .NET decision engine whose domain package holds no Jev URL, header or DTO, mapping `Choice`, `Score` and `Noul` questions onto `POST /v1/systemone` from a separate provider package, with a runnable ASP.NET ticket-triage sample that picks the owning team and escalates to a human at a normalized `Score` of 0.8, and 1,096 tests across `net8.0` and `net10.0` that run with no HTTP.
 
 - [intern-decision-mlx](https://github.com/dex0shubham/intern-decision-mlx) ![type: self-hosted](https://img.shields.io/badge/type-self--hosted-4B5563?style=flat-square) - Local runtime: serves Shanghai AI Lab's open Intern-Decision-0.8B vision decision model on Apple Silicon behind a `/v1/systemone`-shaped endpoint that also takes screenshots, so an agent can threshold the calibrated `Choice`, `Score` and `Noul` answers and escalate the rest — 0.9 s per 1080p screenshot downscaled to 1024 px on an 8 GB M2 MacBook Air, and the same answers as the lab's PyTorch reference on 67 of 67 fields.
+
+- [Jev Agent](https://jev-agent.com/api-access) ![type: hosted](https://img.shields.io/badge/type-hosted-4B5563?style=flat-square) - Developer tooling: hosted Jev AI relay whose Jev model API accepts OpenAI's Decisions API request at `/api/v1/decisions`, so the OpenAI SDK reaches Jev or any of 13 decision models by changing `baseURL`, and TypeSafe's own `Choice` / `Score` / `Noul` shape at `/api/v1/systemone`, returning per-option probabilities (plus confidence on `Choice`) that calling code thresholds to accept or escalate, with an `X-TypeSafe-Key` header that runs Jev on your own TypeSafe account for 0 credits; independent, not affiliated with TypeSafe AI.
 
 ### Game & Simulation
 
@@ -1374,7 +1381,7 @@ Source file: [`categories/content-moderation.md`](categories/content-moderation.
 - [jev-reviews](https://github.com/halfspin-qc/jev-reviews) - Data & Search: The flagship experiment in this workspace is \*\*\`jev-reviews\`\*\*: an automated pipeline that ingests Google Maps restaurant reviews from \*\*Apify Storage\*\*, stores and deduplicates them in \*\*Supabase PostgreSQL\*\*, and classifies them using \*\*Jev (TypeSafe System One)\*\* or traditional generative LLMs across 5 operational pillars, extracting dishes, customer highlights, and owner recommendations.
 - [DataJev](https://github.com/zzz1YAO/DataJev) - Data & Search: ⚡ DataJev LLM → Analyze Jev → Continue / Switch / Verify / Stop System-1 control for System-2 data agents
 - [jev-harness](https://github.com/PromtEngineer/jev-harness) - Data & Search: A Pi agent harness built around TypeSafe's Jev (System One model): router, context picker, gate, verifier. Tested on Neon Postgres branches.
-- [JevDeepResearch](https://github.com/sunyasheng/JevDeepResearch) - Data & Search: GPT directs the research; Jev uses Choice and Noul to locate evidence across document regions concurrently, and code returns original passages for GPT to verify and continue. The released integration pairs Pi-Serini BM25 search with Jev batches of 20, 40, or 60 documents.
+- [JevGPT](https://github.com/sunyasheng/JevGPT) - Data & Search: Research agent from the paper [JevGPT: Thinking Fast and Slow in Autonomous Research](https://arxiv.org/abs/2610.18272) and successor of Jev Deep Research: GPT-5.5 plans the research; in BrowseComp-Plus QA, Jev uses Choice to locate answer lines and Noul to check whether each document region addresses the request in parallel across many documents, and code returns the original passages to GPT; the paper reports 90.48% accuracy on 830 BrowseComp-Plus questions and nDCG@20 0.5390 on 105 NeuCLIRBench topics.
 - [jevsome-projects](https://github.com/ozers/jevsome-projects) - Data & Search: A Jev project directory and discovery pipeline that stores integration evidence and can use Jev for classification.
 - [jevtok-ts](https://github.com/aarzhaev/jevtok-ts) - Data & Search: \*\*No Python, network calls, API keys, native extensions, or runtime dependencies.\*\* Vocabulary and lookup tables ship inside the package. Ordinary \`o200k\_base\` tokenization is not interchangeable with Jev: \`evidence\` is three tokens and \`2024\` is four.
 - [sieve](https://github.com/nothans/sieve) - Data & Search: Sieve checks a folder of Markdown notes against itself. Crosscheck compares every note with every other, from both sides, and lists the pairs that contradict each other, the pairs that make the same point twice, and the notes that have gone stale. It also ranks the whole folder by any plain-English question, and lints notes against plain-English rules in CI. No index, no embeddings, no generated text. Node, no dependencies.
