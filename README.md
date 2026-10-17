@@ -686,6 +686,8 @@ Source file: [`categories/calibration-research.md`](categories/calibration-resea
 
 - [WaterSheep](https://github.com/SamratDuttaOfficial/WaterSheep) - Open alternative: an Apache-2.0 open-weight model that answers `noul`, `choice`, `score` and multi-label questions with a calibrated probability for every option, serves `POST /v1/systemone` so TypeSafe's Python SDK works after a base-URL change, and has an ONNX build that runs in the browser.
 
+- [Phocinae Largha 150M](https://github.com/Phocinae/Phocinae-Largha-150M-v1) - Open model: a 144.3M-parameter bilingual (English/Chinese) typed decision model on mmBERT-small that answers `Choice`, `Score` and `Noul` questions with calibrated probabilities in one forward pass so callers gate or escalate on the returned numbers; runs locally, 21.0 ms p50 per decision on an RTX 5090, with Apache-2.0 weights.
+
 ### Infra / SDKs / Integrations
 
 Source file: [`categories/infra-sdks-integrations.md`](categories/infra-sdks-integrations.md)
