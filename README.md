@@ -70,7 +70,7 @@ Each entry lives in exactly one category. When a project could fit multiple cate
 - [Agent Decisions](#agent-decisions) — 80 entries
 - [Data Labeling & Curation](#data-labeling--curation) — 4 entries
 - [Evaluation & Benchmarking](#evaluation--benchmarking) — 59 entries
-- [Calibration & Research](#calibration--research) — 48 entries
+- [Calibration & Research](#calibration--research) — 49 entries
 - [Infra / SDKs / Integrations](#infra--sdks--integrations) — 250 entries
 - [Game & Simulation](#game--simulation) — 71 entries
 - [Robotics & Physical](#robotics--physical) — 4 entries
@@ -686,6 +686,7 @@ Source file: [`categories/calibration-research.md`](categories/calibration-resea
 - [Vev](https://github.com/Xiaooolong/vev) - Open alternative: an open-source Jev implementation with vision input, LoRA fine-tuned on Qwen3.5-4B and 9B, serving `Choice`, `Score` and `Noul` questions on the `/v1/systemone` wire format with screenshots and photos placed directly in the state so one decision can use both text and image; weights are CC BY-NC 4.0, non-commercial only.
 
 - [WaterSheep](https://github.com/SamratDuttaOfficial/WaterSheep) - Open alternative: an Apache-2.0 open-weight model that answers `noul`, `choice`, `score` and multi-label questions with a calibrated probability for every option, serves `POST /v1/systemone` so TypeSafe's Python SDK works after a base-URL change, and has an ONNX build that runs in the browser.
+- [VideoJev](https://github.com/MCG-NJU/VideoJev) - Video understanding: Jev-inspired System One models directly score temporal membership and answer options for multiple questions over one shared video prefix, returning intervals and choices without generating text.
 
 - [Phocinae Largha 150M](https://github.com/Phocinae/Phocinae-Largha-150M-v1) - Open model: a 144.3M-parameter bilingual (English/Chinese) typed decision model on mmBERT-small that answers `Choice`, `Score` and `Noul` questions with calibrated probabilities in one forward pass so callers gate or escalate on the returned numbers; runs locally, 21.0 ms p50 per decision on an RTX 5090, with Apache-2.0 weights.
 
