@@ -65,7 +65,7 @@ Each entry lives in exactly one category. When a project could fit multiple cate
 
 - [Classification & Routing](#classification--routing) — 109 entries
 - [Adaptive & Realtime UI](#adaptive--realtime-ui) — 3 entries
-- [Verification & Guardrails](#verification--guardrails) — 97 entries
+- [Verification & Guardrails](#verification--guardrails) — 98 entries
 - [Scoring & Ranking](#scoring--ranking) — 29 entries
 - [Agent Decisions](#agent-decisions) — 80 entries
 - [Data Labeling & Curation](#data-labeling--curation) — 4 entries
@@ -248,6 +248,8 @@ Source file: [`categories/classification-routing.md`](categories/classification-
 ### Verification & Guardrails
 
 Source file: [`categories/verification-guardrails.md`](categories/verification-guardrails.md)
+
+- [Subcento](https://github.com/septagos/subcento) - Agent payments: pay-per-call x402 pre-flight verifier gating transactions BEFORE an AI agent signs — GoPlus address risk + OFAC SDN screening + official TypeSafe Jev 3-in-1 fan-out (drainer `Noul`, risk `Choice`, intent-match `Choice`, `jev-1.14.0` pinned) + deterministic calldata checks, returning an Ed25519-signed SAFE/CAUTION/BLOCK verdict; fail-closed (unreachable trust layer ⇒ BLOCK), edge paywall in Caddy, live on Base at 0.002 USDC/call.
 
 - [GeekLink Jev Subtitle Translator](https://github.com/GeekLinkDev/jev-subtitle-translator) - Media localization: reviews source–translation SRT pairs with one Jev `Noul` decision per cue and flags suspected omissions or meaning changes for human review.
 - [is-malicious](https://github.com/luantak/is-malicious) - Software supply-chain security: asks Jev `Noul` checks about source and build files, escalates suspicious chunks for a second pass, and returns implicated files and lines before execution.
