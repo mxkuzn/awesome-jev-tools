@@ -236,6 +236,7 @@ Source file: [`categories/classification-routing.md`](categories/classification-
 - [Jevvie](https://chriswijnia.com/lab/jevvie) ![type: library](https://img.shields.io/badge/type-library-4B5563?style=flat-square) - Web companions: a page offers its actions as WebMCP tools and one Jev `Choice` picks the action a visitor's request means, with a `Choice` per argument asked alongside, asking back when the top two options are close and gating unprompted tips with a `Noul` ([source](https://github.com/cwdx/jevvie)).
 
 - [Gut Check](https://github.com/funkadelic/ha-gutcheck) - Smart home: Home Assistant integration whose eight install checks ask Jev a `Score` on each pending update's release notes and a `Choice` per item elsewhere, such as whether an unavailable entity is expected, worth fixing or safe to remove; answers below 0.5 confidence change nothing, and the rest that need action become Repairs cards the user must confirm.
+- [Trio-Spark Ticket Rush](https://github.com/machinefi/trio-spark/tree/main/demos/ticket-rush) - Support triage: sends each of 1,000 support tickets to the System One-compatible Trio-Spark API as one `choice` over eight team queues and routes any ticket whose top probability is below 0.6 to human review instead.
 
 ### Adaptive & Realtime UI
 
